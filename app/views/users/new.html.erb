@@ -1,0 +1,10 @@
+<div id="sign-up">
+	
+	<%= form_for @user do |f| %>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+		<%= f.hidden_field :super_id, value: @super.id %>
+	<% end %>
+
+</div>
+
