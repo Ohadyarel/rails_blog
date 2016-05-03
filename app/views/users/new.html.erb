@@ -1,10 +1,22 @@
 <div id="sign-up">
-	
-	<%= form_for @user do |f| %>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-		<%= f.hidden_field :super_id, value: @super.id %>
-	<% end %>
+
+	<div id="signup_heading">
+		<h1>Sign up to <i>Blog.</i></h1>
+		<p>
+			Already registered? <%= link_to "Click here", new_session_path %>
+		</p>
+	</div>
+
+	<div id="signup_article">
+		<%= form_for(@user) do |f| %>
+			<%= f.text_field :blog_title, placeholder: "Blog title" %>
+			<%= f.text_field :name,  placeholder: "Your name" %>
+			<%= f.email_field :email, placeholder: "Email" %>
+			<%= f.password_field :password, placeholder: "Password" %>
+			<%= f.submit value: "Sign Up" %>
+		<% end %>
+		<%= flash[:alert] if flash[:alert] %>
+	</div>
 
 </div>
 
