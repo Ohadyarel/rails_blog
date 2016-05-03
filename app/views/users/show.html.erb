@@ -5,9 +5,15 @@
 	</div>
 
 	<div id="profile_article">
-		<div id="profile_new_post_button">
-			<%= link_to "New Post", new_post_path %>
-		</div>
+		<% if @user == current_user %>
+			<div id="profile_new_post_button">
+				<%= link_to "New Post", new_post_path %>
+			</div>
+
+			<div id="profile_edit_button">
+				<%= link_to "Update Profile Info", edit_user_path %>
+			</div>
+		<% end %>
 		<!-- display each post (without the body) -->
 	</div>
 
