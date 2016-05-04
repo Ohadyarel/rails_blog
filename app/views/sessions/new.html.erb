@@ -1,18 +1,25 @@
 <div id="log-in">
 
-	<div id="login_heading">
-		<h1>Log in to <i>Blog.</i></h1>
+	<% if current_user == nil %>
+		<div id="login_heading">
+			<h1>Log in to <i>Blog.</i></h1>
+			<p>
+				Not registered yet? <%= link_to "Sign up now!", new_user_path %>
+			</p>
+		</div>
+		<div id="login_article">
+				<%= form_for(:session, url: sessions_path) do |f| %>
+					<%= f.email_field :email, placeholder: "Email" %>
+					<%= f.password_field :password, placeholder: "Password" %>
+					<%= f.submit "Log in" %>
+				<% end %>
+				<%= flash[:alert] if flash[:alert] %>
+		</div>
+	<% else %>
 		<p>
-			Not registered yet? <%= link_to "Sign up now!", new_user_path %>
+			Your are already logged in as <%= current_user.name %>
 		</p>
-	</div>
-
-	<div id="login_article">
-		<%= form_for(:session, url: sessions_path) do |f| %>
-			<%= f.email_field :email, placeholder: "Email" %>
-			<%= f.password_field :password, placeholder: "Password" %>
-			<%= f.submit "Log in" %>
-		<% end %>
-	</div>
+		<%= link_to "Go to your profile page", user_path(current_user) %>
+	<% end %>
 	
 </div>

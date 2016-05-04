@@ -1,2 +1,15 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div id="edit_profile">
+	<div id="edit_profile_form">
+		<h1>Update Your Profile</h1>
+		<%= form_for(@update) do |f| %>
+			<%= f.text_field :blog_title, value: current_user.blog_title %>
+			<%= f.text_field :name,  value: current_user.name %>
+			<%= f.email_field :email, value: current_user.email %>
+			<%= f.password_field :password, value: current_user.password %>
+			<%= f.submit value: "Update" %>
+		<% end %>
+		<%= flash[:alert] if flash[:alert] %>
+		<%= flash[:notice] if flash[:notice] %>
+		<%= button_to "Delete account", user_path(current_user), method: :delete %>
+	</div>
+</div>
