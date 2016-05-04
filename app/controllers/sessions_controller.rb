@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def create
+    puts params.inspect
   	user = User.where(email: params[:session][:email].downcase).first
     if user && user[:password] == params[:session][:password]
     	log_in user
