@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @current_post = Post.find(params[:id])
   end
 
   def new
@@ -20,5 +21,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    Post.find(params[:id]).comments.delete
+    Post.find(params[:id]).delete
+    redirect_to posts_path
   end
 end

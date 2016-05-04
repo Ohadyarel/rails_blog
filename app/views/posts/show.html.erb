@@ -1,2 +1,31 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div id="post_show">
+	<div id="post_title">
+		<h1><%= @current_post.title %></h1>
+		<h4>Published by <%= link_to @current_post.user.name %></h4>
+		<% if @current_post.user_id == current_user.id %>
+			<%= button_to "Delete post", post_path(@current_post), method: :delete %>
+		<% end %>
+	</div>
+
+	<div id="post_desc">
+		<p>
+			<%= @current_post.desc %>
+		</p>
+	</div>
+
+	<div id="post_body">
+		<p>
+			<%= @current_post.body %>
+		</p>
+	</div>
+
+	<div id="post_comments">
+		<div id="post_new_comment">
+			
+		</div>
+		<div id="post_comments_show">
+			
+		</div>
+	</div>
+
+</div>
