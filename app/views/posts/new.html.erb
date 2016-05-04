@@ -1,2 +1,17 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div id="new-post">
+
+	<div id="new_post_heading">
+		<h1>Create a new <i>Blog.</i> post</h1>
+	</div>
+
+	<div id="new_post_article">
+		<%= form_for(@post) do |f| %>
+			<%= f.text_field :title, placeholder: "Post title" %>
+			<%= f.text_field :desc,  placeholder: "Short description" %>
+			<%= f.text_area :body, placeholder: "Write your post here" %>
+			<%= f.submit value: "Publish" %>
+		<% end %>
+		<%= flash[:alert] if flash[:alert] %>
+	</div>
+
+</div>
