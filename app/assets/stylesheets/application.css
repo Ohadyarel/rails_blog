@@ -81,3 +81,226 @@ body {
 #landing_buttons .landing_button:hover {
 	background: #56BC8A;
 }
+/*==========================================================*/
+
+/*sign up page*/
+
+#sign-up {
+	width: 460px;
+	height: 390px;
+	margin: 10% auto;
+	background: #36465D;
+	color: white;
+	text-align: center;
+}
+
+#signup_heading a {
+	color: #56BC8A;
+}
+
+#signup_heading h1 {
+	padding-top: 15px;
+	font-size: 3em;
+	margin: 0;
+}
+
+#signup_heading p {
+	margin-top: 4px;
+}
+
+#signup_article form {
+	width: 300px;
+	margin: 0 auto;
+}
+
+#signup_article input {
+	display: block;
+	margin: 25px 0;
+	width: 300px;
+	font-size: 1.2em;
+}
+
+#signup_article input:focus {
+	border: 2px solid #56BC8A;
+	outline: none;
+}
+
+#signup_article #signup_submit {
+	width: 120px;
+	margin: 15px auto;
+	background: #56BC8A;
+	color: white;
+	border: none;
+}
+
+/*==========================================================*/
+
+/*log in page*/
+
+#log-in {
+	width: 460px;
+	height: 350px;
+	margin: 10% auto;
+	background: #36465D;
+	color: white;
+	text-align: center;
+}
+
+#login_heading a{
+	color: #56BC8A;
+}
+
+#login_heading h1{
+	padding-top: 15px;
+	font-size: 3em;
+	margin: 0;
+}
+
+#login_heading p {
+	margin-top: 4px;
+}
+
+#login_article form {
+	width: 300px;
+	margin: 0 auto;
+}
+
+#login_article {
+	margin-top: 50px;
+}
+
+#login_article input {
+	display: block;
+	margin: 30px 0;
+	width: 300px;
+	font-size: 1.2em;
+}
+
+
+#login_article input:focus {
+	border: 2px solid #56BC8A;
+	outline: none;
+}
+
+#login_article #login_button {
+	width: 120px;
+	margin: 15px auto;
+	background: #56BC8A;
+	color: white;
+	border: none;
+}
+
+/*==========================================================*/
+
+/*nav bar - visible only after user is logged in */
+
+nav {
+	text-align: right;
+	height: 40px;
+	width: 100%;
+	background: #36465D; 
+}
+
+nav ul {
+	list-style: none;
+	margin: 0 10px;
+	padding: 0;
+	padding-top: 8px;
+}
+
+nav ul li {
+	display: inline-block;
+	margin: 0 10px;
+	color: #56BC8A;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #56BC8A;
+}
+
+nav ul li i {
+	font-weight: bold;
+}
+
+/*==========================================================*/
+
+/*User profile page*/
+
+#profile_heading {
+	width: 100%;
+	margin: 45px auto;
+	text-align: center;
+	color: #36465D;
+}
+
+#profile_heading h1 {
+	margin-bottom: 0;
+	font-size: 2.2em;
+}
+
+#profile_heading a {
+	text-decoration: none;
+	color: #56BC8A;
+}
+
+#profile_heading span {
+	padding: 0 5px;
+}
+
+#profile_heading i {
+	font-weight: bold;
+}
+
+#profile_edit_button {
+	margin: 10px;
+
+}
+
+#profile_article {
+	width: 90%;
+	margin: 0 auto;
+}
+
+#post_box_profile {
+	width: 60%;
+	margin: 20px auto;
+	color: white;
+	background: #36465D;
+	padding: 1px;
+}
+
+#post_box_profile h3 {
+	margin: 5px 10px;
+	border-bottom: 1px solid white;
+	font-size: 1.5em; 
+	padding-bottom: 10px;
+}
+
+#post_box_profile p {
+	margin: 5px 10px;
+	border-bottom: 1px solid white;
+	padding-top: 8px;
+	padding-bottom: 17px;
+}
+
+#post_box_profile ul {
+	list-style: none;
+	text-align: right;
+	margin: 5px 0;
+}
+
+#post_box_profile ul li {
+	display: inline-block;
+	color: #56BC8A;
+	margin: 0 5px;
+	font-size: 0.8em;
+}
+ 
+#post_box_profile ul li a {
+	color: #56BC8A;
+}
+
+
+
+/*==========================================================*/

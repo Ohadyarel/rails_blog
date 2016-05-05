@@ -11,8 +11,12 @@
 	<% if logged_in? %>
 		<nav>
 			<ul>
-				<li><%= link_to "Blog.", posts_path %></li>
+				<li><i><%= link_to "Blog.", posts_path %></i></li>
+				<li>|</li>
+				<li><%= link_to "New Post", new_post_path %></li>
+				<li>|</li>
 				<li><%= link_to "My Profile", user_path(current_user) %></li>
+				<li>|</li>
 				<li><%= link_to "Log out", session_path(current_user), method: :delete %></li>
 			</ul>
 		</nav>

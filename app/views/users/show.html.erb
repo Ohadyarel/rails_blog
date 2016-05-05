@@ -1,33 +1,35 @@
 <div id="user_profile">
 	<div id="profile_heading">
 		<h1><%= @user.blog_title %></h1>
-		<h3><i>Blog.</i> by <%= @user.name %></h3>
+		<% if @user == current_user %>
+			<div id="profile_edit_button">
+				<span><i>Blog.</i> by <%= @user.name %></span>
+				<span>|</span>
+				<span><%= link_to "Update Your Profile", edit_user_path %></span>
+			</div>
+		<% else %>
+			<h3><i>Blog.</i> by <%= @user.name %></h3>
+		<% end %>
 	</div>
 
 	<div id="profile_article">
-		<% if @user == current_user %>
-			<div id="profile_new_post_button">
-				<%= link_to "New Post", new_post_path %>
-			</div>
-
-			<div id="profile_edit_button">
-				<%= link_to "Update Profile Info", edit_user_path %>
-			</div>
-		<% end %>
-		<% @posts.each do |post| %>
+		<% @posts.reverse.each do |post| %>
 			<div id="post_box_profile">
 				<h3><%= post.title %></h3>
-				<h5>Published by: <%= link_to post.user.name, user_path(post.user) %></h5>
 				<p><%= post.desc %></p>
-				<p>
-					This post has
-						<% if post.comments.count > 0 %> 
-							<%= post.comments.count %> comments
-						<% else %>
-							no comments yet
-						<% end %>
-				</p>
-				<%= link_to "Read more...", post_path(post) %>
+				<ul>
+					<li>Posted <%= distance_of_time_in_words(post.created_at, Time.now) %> ago</li>
+					<li>|</li>
+					<li>
+							<% if post.comments.count > 0 %> 
+								<%= post.comments.count %> comments
+							<% else %>
+								No comments yet
+							<% end %>
+					</li>
+					<li>|</li>
+					<li><%= link_to "Read more...", post_path(post) %></li>
+				</ul>
 			</div>
 		<% end %>
 	</div>

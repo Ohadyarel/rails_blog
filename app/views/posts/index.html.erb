@@ -8,17 +8,22 @@
 		<% @posts.each do |post| %>
 			<div id="post_box_index">
 				<h3><%= post.title %></h3>
-				<h5>Published by: <%= link_to post.user.name, user_path(post.user) %></h5>
+				<h5>Posted by: <%= link_to post.user.name, user_path(post.user) %> </h5>
+
 				<p><%= post.desc %></p>
-				<p>
-					This post has
-						<% if post.comments.count > 0 %> 
-							<%= post.comments.count %> comments
-						<% else %>
-							no comments yet
-						<% end %>
-				</p>
-				<%= link_to "Read more...", post_path(post) %>
+				<ul>
+					<li>Posted <%= distance_of_time_in_words(post.created_at, Time.now) %> ago</li>
+					<li>|</li>
+					<li>
+							<% if post.comments.count > 0 %> 
+								<%= post.comments.count %> comments
+							<% else %>
+								No comments yet
+							<% end %>
+					</li>
+					<li>|</li>
+					<li><%= link_to "Read more...", post_path(post) %></li>
+				</ul>
 			</div>
 		<% end %>
 	</div>
