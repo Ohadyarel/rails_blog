@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   def index
+    if logged_in?
+      redirect_to user_path(current_user)
+    end
   end
 
   def show
     @user = User.find(params[:id])
+    @posts = Post.where(user_id: params[:id])
   end
 
   def new

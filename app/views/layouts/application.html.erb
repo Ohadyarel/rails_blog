@@ -2,11 +2,21 @@
 <html>
 <head>
   <title>Blog.</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,900italic,400italic' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<% if logged_in? %>
+		<nav>
+			<ul>
+				<li><%= link_to "Blog.", posts_path %></li>
+				<li><%= link_to "My Profile", user_path(current_user) %></li>
+				<li><%= link_to "Log out", session_path(current_user), method: :delete %></li>
+			</ul>
+		</nav>
+	<% end %>
 
 <%= yield %>
 

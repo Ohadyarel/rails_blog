@@ -14,11 +14,22 @@
 				<%= link_to "Update Profile Info", edit_user_path %>
 			</div>
 		<% end %>
-		<!-- display each post (without the body) -->
+		<% @posts.each do |post| %>
+			<div id="post_box_profile">
+				<h3><%= post.title %></h3>
+				<h5>Published by: <%= link_to post.user.name, user_path(post.user) %></h5>
+				<p><%= post.desc %></p>
+				<p>
+					This post has
+						<% if post.comments.count > 0 %> 
+							<%= post.comments.count %> comments
+						<% else %>
+							no comments yet
+						<% end %>
+				</p>
+				<%= link_to "Read more...", post_path(post) %>
+			</div>
+		<% end %>
 	</div>
-
-
-<%= link_to "Log out", session_path, method: :delete %>
-
 	
 </div>

@@ -5,3 +5,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+User.destroy_all
+Post.destroy_all
+Comment.destroy_all
+
+users = []
+posts = []
+
+30.times do
+	users << User.create(password: '1', name: Faker::Name.name , email: Faker::Internet.email, blog_title: Faker::Book.title, blog_cat: "general")
+end
+
+users.each do |user|
+	4.times do 
+		posts << Post.create(user_id: user.id, title: Faker::Hipster.sentence, desc: Faker::StarWars.quote ,body: Faker::Hipster.paragraph(2, false, 10))
+		Comment.create(user_id: user.id, post_id: posts.sample.id, body: Faker::Hipster.sentence)
+	end
+end
