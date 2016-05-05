@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def create
     if !params[:user][:blog_title].blank? && !params[:user][:name].blank? && !params[:user][:email].blank? && !params[:user][:password].blank?
       if User.where(email: params[:user][:email].downcase).first == nil
-        @user = User.new(blog_title: params[:user][:blog_title], name: params[:user][:name], email: params[:user][:email].downcase, password: params[:user][:password])
+        @user = User.new(user_params)
         @user.blog_cat = "General"
         @user.save
         log_in @user
@@ -39,15 +39,10 @@ class UsersController < ApplicationController
   def update
     if !params[:user][:blog_title].blank? && !params[:user][:name].blank? && !params[:user][:email].blank? && !params[:user][:password].blank?
       if User.where(email: params[:user][:email].downcase) == nil
-        User.update(current_user[:id], blog_title: params[:user][:blog_title])
-        User.update(current_user[:id], name: params[:user][:name])
-        User.update(current_user[:id], password: params[:user][:password])
-        User.update(current_user[:id], email: params[:user][:email])
+        User.find(current_user[:id]).update(user_params)
         flash[:notice] = "Your profile was updated successfully."
       elsif current_user.email == params[:user][:email]
-        User.update(current_user[:id], blog_title: params[:user][:blog_title])
-        User.update(current_user[:id], name: params[:user][:name])
-        User.update(current_user[:id], password: params[:user][:password])
+        User.find(current_user[:id]).update(blog_title: params[:user][:blog_title], name: params[:user][:name], password: params[:user][:password])
         flash[:notice] = "Your profile was updated successfully."
       else
         flash[:alert] = "A user with that email already exists"
@@ -70,4 +65,11 @@ class UsersController < ApplicationController
     log_out
     redirect_to root_path
   end
+
+  private   
+
+  def user_params
+    params.require(:user).permit(:blog_title, :name, :email, :password)   
+  end
+
 end

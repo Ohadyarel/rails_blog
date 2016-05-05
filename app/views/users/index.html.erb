@@ -1,17 +1,23 @@
 <div id="landing">
 	<div id="landing_heading">
 		<h1><i>Blog.</i></h1>
-		<h2>
+<!-- 		<h2>
 			A Basic <br>
 			Rails Blog.
-		</h2>
+		</h2> -->
 	</div>
 	<div id="landing_article">
-		<div class="landing_button">
-			<%= link_to "Sign Up", new_user_path %>
-		</div>
-		<div class="landing_button">
-			<%= link_to "Log In", new_session_path %>
+		<div id="landing_buttons">
+			<a href="/users/new">
+				<div class="landing_button">
+					<p>Sign Up</p>
+				</div>
+			</a>
+			<a href="/sessions/new">
+				<div class="landing_button">
+					<p>Log In</p>
+				</div>
+			</a>
 		</div>
 	</div>
 </div>
