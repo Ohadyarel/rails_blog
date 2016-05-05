@@ -236,7 +236,7 @@ nav ul li i {
 
 #profile_heading h1 {
 	margin-bottom: 0;
-	font-size: 2.2em;
+	font-size: 3em;
 }
 
 #profile_heading a {
@@ -287,7 +287,7 @@ nav ul li i {
 #post_box_profile ul {
 	list-style: none;
 	text-align: right;
-	margin: 5px 0;
+	margin: 5px 5px;
 }
 
 #post_box_profile ul li {
@@ -301,6 +301,88 @@ nav ul li i {
 	color: #56BC8A;
 }
 
+
+/*==========================================================*/
+
+/*index of posts*/
+
+#posts_index_heading {
+	width: 100%;
+	margin: 45px auto;
+	text-align: center;
+	color: #36465D;
+}
+
+#posts_index_heading h1 {
+	margin-bottom: 0;
+	font-size: 3.5em;
+}
+
+#posts_index_heading h4 {
+	margin-top: 10px;
+	font-size: 1.5em;
+}
+
+#posts_index_heading h4 i {
+	color: #56BC8A;
+}
+
+#posts_index_heading a {
+	text-decoration: none;
+	color: #56BC8A;
+}
+
+#posts_index_article {
+	width: 90%;
+	margin: 0 auto;
+}
+
+#post_box_index {
+	width: 60%;
+	margin: 20px auto;
+	color: white;
+	background: #36465D;
+	padding: 1px;
+}
+
+#post_box_index h3 {
+	margin: 5px 10px;
+	font-size: 1.5em; 
+}
+
+#post_box_index h5 {
+	border-bottom: 1px solid white;
+	margin: 5px 10px;
+	padding-bottom: 10px;
+}
+
+#post_box_index h5 a {
+	color: #56BC8A;
+}
+
+#post_box_index p {
+	margin: 5px 10px;
+	border-bottom: 1px solid white;
+	padding-top: 8px;
+	padding-bottom: 17px;
+}
+
+#post_box_index ul {
+	list-style: none;
+	text-align: right;
+	margin: 5px 5px;
+}
+
+#post_box_index ul li {
+	display: inline-block;
+	color: #56BC8A;
+	margin: 0 5px;
+	font-size: 0.8em;
+}
+ 
+#post_box_index ul li a {
+	color: #56BC8A;
+}
 
 
 /*==========================================================*/
