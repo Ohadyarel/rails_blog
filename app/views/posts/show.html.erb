@@ -1,40 +1,40 @@
 <div id="post_show">
 	<div id="post_title">
 		<h1><%= @current_post.title %></h1>
-		<h4>Published by <%= link_to @current_post.user.name, user_path(@current_post.user) %></h4>
+		<h5>Posted by <%= link_to @current_post.user.name, user_path(@current_post.user) %> <%= distance_of_time_in_words(@current_post.created_at, Time.now) %> ago</h5>
 		<% if @current_post.user_id == current_user.id %>
 			<%= button_to "Delete post", post_path(@current_post), method: :delete %>
 		<% end %>
 	</div>
 
-	<div id="post_desc">
-		<p>
-			<%= @current_post.desc %>
-		</p>
-	</div>
-
 	<div id="post_body">
-		<p>
-			<%= @current_post.body %>
-		</p>
+		<p><i><%= @current_post.desc %></i><p>
+		<% #if @current_post.img.blank? %>
+			<div id="post_img">
+				<%= image_tag "http://placehold.it/630x400" %>
+			</div>
+		<% #end %>
+		<p><%= @current_post.body %></p>
 	</div>
 
 	<div id="post_comments">
+		<div id="post_comments_show">
 		<div id="post_new_comment">
 			<%= form_for [@current_post, @comment] do |f| %>
 				<%= f.text_field :body, placeholder: "Write your comment" %>
 				<%= f.hidden_field :post_id, value: @current_post.id %>
-				<%= f.submit value: "Submit" %>
+				<%= f.submit value: "Submit", id: "submit_comment" %>
 			<% end %>
 			<%= flash[:alert] if flash[:alert] %>
 		</div>
-		<div id="post_comments_show">
-			<% @comments.each do |comment| %>
-				<% if comment.user == current_user %>
-					<p><%= link_to "X", post_comment_path(@current_post, comment), method: :delete %></p>
-				<% end %>
-				<p><%= link_to comment.user.name, user_path(comment.user) %>: </p>
-				<p><%= comment.body %></p>
+			<% @comments.reverse.each do |comment| %>
+				<div id="post_comment_box">
+					<span><%= link_to comment.user.name, user_path(comment.user) %>: </span>
+					<span><%= comment.body %></span>
+					<% if comment.user == current_user %>
+						<span id="delete_button"><%= link_to raw("<i class='fa fa-times'></i>"), post_comment_path(@current_post, comment), method: :delete %></span>
+					<% end %>
+				</div>
 			<% end %>
 		</div>
 	</div>

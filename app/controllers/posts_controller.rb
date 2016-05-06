@@ -26,6 +26,6 @@ class PostsController < ApplicationController
   def destroy
     Post.find(params[:id]).comments.delete
     Post.find(params[:id]).delete
-    redirect_to posts_path
+    redirect_to user_path(current_user)
   end
 end
