@@ -1,15 +1,19 @@
 <div id="edit_profile">
 	<div id="edit_profile_form">
-		<h1>Update Your Profile</h1>
+		<h1>Update Your <i>Blog.</i> Profile</h1>
 		<%= form_for(@update) do |f| %>
+			<%= f.label :blog_title %>
 			<%= f.text_field :blog_title, value: current_user.blog_title %>
+			<%= f.label :name %>
 			<%= f.text_field :name,  value: current_user.name %>
+			<%= f.label :email %>
 			<%= f.email_field :email, value: current_user.email %>
+			<%= f.label :password %>
 			<%= f.password_field :password, value: current_user.password %>
-			<%= f.submit value: "Update" %>
+			<%= f.submit value: "Update", id: "edit_profile_button" %>
 		<% end %>
 		<%= flash[:alert] if flash[:alert] %>
 		<%= flash[:notice] if flash[:notice] %>
-		<%= button_to "Delete account", user_path(current_user), method: :delete %>
 	</div>
+		<p>To delete your account <%= link_to "click here", user_path(current_user), method: :delete %>
 </div>

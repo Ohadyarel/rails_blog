@@ -9,11 +9,11 @@
 
 	<div id="post_body">
 		<p><i><%= @current_post.desc %></i><p>
-		<% #if @current_post.img.blank? %>
+		<% if !@current_post.img_url.blank? %>
 			<div id="post_img">
-				<%= image_tag "http://placehold.it/630x400" %>
+				<%= image_tag @current_post.img_url %>
 			</div>
-		<% #end %>
+		<% end %>
 		<p><%= @current_post.body %></p>
 	</div>
 
@@ -31,8 +31,9 @@
 				<div id="post_comment_box">
 					<span><%= link_to comment.user.name, user_path(comment.user) %>: </span>
 					<span><%= comment.body %></span>
-					<% if comment.user == current_user %>
+					<% if comment.user == current_user or comment.post.user == current_user %>
 						<span id="delete_button"><%= link_to raw("<i class='fa fa-times'></i>"), post_comment_path(@current_post, comment), method: :delete %></span>
+						<div id="clear"></div>
 					<% end %>
 				</div>
 			<% end %>

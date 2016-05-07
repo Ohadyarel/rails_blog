@@ -128,6 +128,7 @@ body {
 #signup_article #signup_submit {
 	width: 120px;
 	margin: 15px auto;
+	margin-bottom: 0;
 	background: #56BC8A;
 	color: white;
 	border: none;
@@ -441,14 +442,11 @@ nav ul li i {
 
 #post_img {
 	text-align: center;
-	width: 650px;
-	margin: 0 auto;
-	padding: 9px 0;
-	background: #56BC8A;
 }
 
 #post_img img {
-	margin-top: 4px;
+	max-width: 90%;
+	border: 10px solid #56BC8A;
 }
 
 #post_body p i {
@@ -496,6 +494,10 @@ nav ul li i {
 	float: right;
 }
 
+#clear {
+	clear: both;
+}
+
 #post_comments_show a {
 	color: #56BC8A;
 }
@@ -506,17 +508,21 @@ nav ul li i {
 
 #new-post {
 	width: 50%;
-	height: 685px;
+	height: 718px;
 	margin: 4% auto;
 	background: #36465D;
 	color: white;
 	text-align: center;
 }
 
-#new-post_heading h1{
+#new-post_heading h1 {
 	padding-top: 15px;
 	font-size: 3em;
 	margin: 0;
+}
+
+#new-post_heading h1 i {
+	color: #56BC8A;
 }
 
 #new-post_article .new_post {
@@ -525,7 +531,7 @@ nav ul li i {
 }
 
 #new-post_article {
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 #new-post_article input, textarea {
@@ -534,6 +540,7 @@ nav ul li i {
 	width: 100%;
 	font-size: 1.2em;
 	background: white;
+	color: black;
 }
 
 #new-post_article input:focus, textarea:focus{
@@ -548,6 +555,7 @@ nav ul li i {
 	background: white;
 	margin-top: 17px;
 	margin-bottom: 16px;
+	color: black;
 }
 
 #new-post_article #post_desc {
@@ -562,11 +570,58 @@ nav ul li i {
 	border: none;
 }
 /*==========================================================*/
+ 
+ /*edit profile page*/
 
+#edit_profile {
+	width: 470px;
+	height: 390px;
+	margin: 8% auto;
+	background: #36465D;
+	color: white;
+	text-align: center;
+}
 
+#edit_profile h1 {
+	padding-top: 15px;
+	font-size: 2.5em;
+	margin: 0;
+}
 
+#edit_profile form {
+	width: 350px;
+	margin: 0 auto;
+}
 
+#edit_profile label {
+	float: left;
+	width: 85px;
+	padding-top: 5px;
+}
 
+#edit_profile input {
+	display: block;
+	margin: 25px 0;
+	width: 250px;
+	font-size: 1.1em;
+}
 
+#edit_profile input:focus {
+	border: 2px solid #56BC8A;
+	outline: none;
+}
+
+#edit_profile #edit_profile_button {
+	width: 120px;
+	margin: 15px auto;
+	margin-bottom: 0;
+	background: #56BC8A;
+	color: white;
+	border: none;
+}
+
+#edit_profile a {
+	color: #56BC8A;
+}
 
 

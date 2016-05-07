@@ -20,7 +20,7 @@ end
 
 users.each do |user|
 	4.times do 
-		posts << Post.create(user_id: user.id, title: Faker::Hipster.sentence, desc: Faker::StarWars.quote ,body: Faker::Hipster.paragraph(2, false, 10))
-		Comment.create(user_id: user.id, post_id: posts.sample.id, body: Faker::Hipster.sentence)
+		posts << Post.create(user_id: user.id, title: Faker::Company.catch_phrase, desc: Faker::StarWars.quote ,body: Faker::Hipster.paragraph(10, false, 20), img_url: Faker::Avatar.image("my-img", "400x350"))
+		Comment.create(user_id: user.id, post_id: posts.sample.id, body: Faker::Hacker.say_something_smart)
 	end
 end

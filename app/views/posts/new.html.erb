@@ -8,6 +8,7 @@
 		<%= form_for(@post) do |f| %>
 			<%= f.text_field :title, placeholder: "Post title" %>
 			<%= f.text_field :desc,  placeholder: "Short description" %>
+			<%= f.text_field :img_url,  placeholder: "Image url" %>
 			<%= f.text_area :body, placeholder: "Write your post here" %>
 			<%= f.submit value: "Publish", id: "new-post_button" %>
 		<% end %>

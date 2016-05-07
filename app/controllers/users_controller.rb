@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = Post.where(user_id: params[:id])
+    redirect_to root_path if !logged_in?
   end
 
   def new
@@ -54,16 +55,18 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    Post.where(user_id: current_user.id).each do |post|
-      post.delete
-      post.comments.delete
-    end
-    Comment.where(user_id: current_user.id).each do |comment|
-      comment.delete
-    end
-    User.find(current_user.id).delete
-    log_out
-    redirect_to root_path
+    # if confirm("Are you sure you want to delete your account?")
+      Post.where(user_id: current_user.id).each do |post|
+        post.delete
+        post.comments.delete
+      end
+      Comment.where(user_id: current_user.id).each do |comment|
+        comment.delete
+      end
+      User.find(current_user.id).delete
+      log_out
+      redirect_to root_path
+    # end
   end
 
   private   
